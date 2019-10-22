@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Change Management: New Item</title>
+</head>
+<style type="text/css">
+
+    td {
+        text-align: left;
+        padding: 4px 10px 3px 10px;
+        height: 18px;
+        border: 1px solid #d8d8d8;
+    }
+
+    #table>tbody>tr>td:first-child {
+        width: 30%;
+        font-size: 1em;
+        margin: 0em;
+        text-align: left;
+        color: #525252;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    #table>tbody>tr>td:nth-child(2) {
+        width: 70%;
+       background-color:  #EBF3F0;
+        font-size: 12px;
+    }
+
+    .title_center{
+        text-align: center;
+    }
+    .w-400 {
+        width: 400px;
+    }
+
+    .w-500 {
+        width: 500px;
+    }
+
+    .d-150 {
+        height: 150px;
+    }
+
+    .span-red {
+        color: red;
+    }
+
+    .w30 {
+        width: 30%;
+    }
+
+    .w20 {
+        width: 20%;
+    }
+</style>
+<script>
+
+
+</script>
+<body style="background-color: #EBF3FF;">
+
+<div id="content" style="width: 100%;height: 100%;">
+
+
+    <div style="width: 80%;margin: 0 auto;">
+        <form enctype="multipart/form-data" action="add_changeManagementItem" method="post">
+
+            <h3>Change Management: New Item</h3>
+            <table id="table" class="ms-main" cellspacing="0">
+                <tbody>
+                <tr height="100%"></tr>
+                <tr>Attach File</tr>
+                <tr>
+                    <td class="w20 ms-standardheader">Title:<span class="span-red">*</span></td>
+                    <td class="w30" id="itemTitle"><input class="w-500" type="text"></td>
+                </tr>
+                <tr>
+                    <td class="w20 title_center" >---------------------1---------------------</td>
+                    <td><input class="w-500" type="text"
+                               value="The section 1 used for Change Requester to submit change request."><br>Do not
+                        change
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w20 ms-standardheader">Date Raised: <span class="span-red">*</span></td>
+                    <td><input class="w-500" type="text"/>
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Owned By: <span class="span-red">*</span></td>
+                    <td><input class="w-500" type="text"><br>
+                        Who request to apply this change?
+                    </td>
+                </tr>
+                <tr>
+                    <td>Destinated Person: <span class="span-red">*</span></td>
+                    <td><input class="w-500" type="text"><br>
+                        Enter users separated with semicolons.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Team: : <span class="span-red">*</span></td>
+                    <td><select>
+                        <option value="Network-Operations">Network-Operations</option>
+                        <option value="NMS">NMS</option>
+                        <option selected="selected" value="SYSTEM">SYSTEM</option>
+                        <option value="Network-Operations EU">Network-Operations EU</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Change Request From:</td>
+                    <td>
+                        <select>
+                            <option selected="selected" value="Required to solve issues/enquiries要求解决事件或问题">Required to
+                                solve issues/enquiries要求解决事件或问题
+                            </option>
+                            <option value="Users/Customers are not satisfied with services用户或客户对服务不满">Users/Customers
+                                are
+                                not satisfied with services用户或客户对服务不满
+                            </option>
+                            <option value="Implement/Decommission devices引入或移除某个配置项">Implement/Decommission
+                                devices引入或移除某个配置项
+                            </option>
+                            <option value="Capacity management容量管理">Capacity management容量管理</option>
+                            <option value="Service requirement change业务需求改变">Service requirement change业务需求改变</option>
+                            <option value="New/Modify rule/logic出现新法规或原有法规发生改变">New/Modify rule/logic出现新法规或原有法规发生改变
+                            </option>
+                            <option value="Change location改变位置">Change location改变位置</option>
+                            <option value="Vendor/Service Provide suggests to change product/services厂商或承包商提出改动产品或服务">
+                                Vendor/Service Provide suggests to change product/services厂商或承包商提出改动产品或服务
+                            </option>
+                            <option value="Other其他">Other其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Type:</td>
+                    <td>
+                        <input type="radio" name="changeTypeChecked" checked="checked">
+                        <select>
+                            <option value="Application">Application</option>
+                            <option value="Network">Network</option>
+                            <option value="Network-Testing">Network-Testing</option>
+                            <option selected="selected" value="Operating System">Operating System</option>
+                            <option value="Other">Other</option>
+                            <option value="Software Development">Software Development</option>
+                        </select><br>
+                        <input type="radio" name="changeTypeChecked"><span>Specify your own value:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="changeTypeValue"><br>
+                        Type of this change.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Justification: <span class="span-red">*</span></td>
+                    <td><textarea class="w-500 d-150"></textarea><br>Describe the purpose and reason of the change.</td>
+                </tr>
+                <tr>
+                    <td class="title_center">---------------------1.2---------------------</td>
+                    <td><input class="w-500" type="text"
+                               value="The section 1.2 is for change requester to provide the Description of this change."><br>
+                        Do not change
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Description: <span class="span-red">*</span></td>
+                    <td title="Change Description"><textarea class="w-500 d-150"></textarea><br>Describe what needed to be changed.</td>
+                </tr>
+                <tr>
+                    <td>Change Priority:</td>
+                    <td>
+                        <select title="Change Priority">
+                            <option selected="selected" value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Emergency Changes</td>
+                    <td><input type="checkbox" title="Emergency Changes"></td>
+                </tr>
+                <tr>
+                    <td>Need NITP:</td>
+                    <td><input type="checkbox" title="Need NITP"></td>
+                </tr>
+                <tr>
+                    <td>Change Plan:</td>
+                    <td class="w30"><textarea class="w-500 d-150"></textarea><br>Describe how the change will be done.
+                        Please attach 《POP点建设前工作记录表 》and 《线路维护及设备更新后期工作记录表 》if it is a POP maintenance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Affected Equipment: <span class="span-red">*</span></td>
+                    <td><textarea class="w-500 d-150"></textarea><br>Input all impacted device names<br>
+                        輸入change內容所牽涉到的設備名稱
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fallback Plan: <span class="span-red">*</span></td>
+                    <td><textarea class="w-500 d-150"></textarea><br>Describe the fallback plan. If the change is
+                        failed,
+                        then the fallback plan is used for resuming the server/ service.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Planned Start Time:</td>
+                    <td class="w30">
+                        <input type="text">
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select><br>
+                        1, “No Customer Impact” maintenance can be arranged on Tuesday, Thursday, and Saturday.<br>
+                        2, “Customer Impacted” maintenance ONLY can be arranged on 00:00am Sunday or 00:00am Monday.<br>
+                        3, For maintenance of circuit/backbone across timezone, the planned start time should be based
+                        on
+                        local time; e.g. HK-LA backbone maintenance, the planned start time should be 0:00am LA time,
+                        which
+                        means HK time 16:00. Also, in order to avoid mis-understand, please fill &lt;Planned Start Time
+                        &gt;
+                        using HK time zone.<br>
+
+                        1. 没有客户受影响的Change，可以安排在星期二、四、六进行。<br>
+                        2. 有客户受影响的Change，只能安排在星期日凌晨00:00或星期一凌晨00:00 进行。<br>
+                        3. 关于跨地区的线路或骨干的维护，Planned Start Time只能是当地时间的00:00为开始时间，例如HK-LA Backbone维护，Change
+                        Owner计划的开始时间应为LA时间00:00，即香港时间16:00开始维护，而非00:00HKT。另外，为了避免时间上的误会，请Change Owner确认开始时间后，统一转换为香港时间。
+                    </td>
+                </tr>
+                <tr>
+                    <td>Planned Completion Time:</td>
+                    <td><input type="text">
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Test Plan:</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Test Result:</td>
+                    <td><input type="radio" name="testResult">Pass<br> <input type="radio" name="testResult">Failed<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Client List:</td>
+                    <td>
+                        <select>
+                            <option value="Yes">Yes</option>
+                            <option selected="selected" value="No">No</option>
+                            <br>
+                            Please attach client list if applicable.<br>
+                            please refer to attachement
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ticket Number:</td>
+                    <td class="w30"><input class="w-500" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Need To Send Notice:</td>
+                    <td class="w30"><input name="neddToSendNotice" type="radio">Yes<br>
+<!--                        <input type="radio" name="changeTypeChecked" checked="checked">-->
+
+                        <input name="neddToSendNotice" type="radio" checked="checked">No
+                    </td>
+                </tr>
+                <tr>
+                    <td>Notice Sent Time:</td>
+                    <td><input type="text">
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Remark:</td>
+                    <td><textarea class="w-500 d-150"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_center">---------------------1.3---------------------</td>
+                    <td><input class="w-500" type="text"
+                               value="The section 1.3 is for change requester to provide the Risk Assessment of this change"><br>
+                        Do not change
+                    </td>
+                </tr>
+                <tr>
+                    <td>Affected Duration:</td>
+                    <td class="w30"><input class="w-500" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Platform/Operation/Service/Process Impact:</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Affected # of Platforms:</td>
+                    <td>
+                        <select>
+                            <option selected="selected" value="Level 4: 1 platforms">Level 4: 1 platforms</option>
+                            <option value="Level 3: 2 platforms">Level 3: 2 platforms</option>
+                            <option value="Level 2: 3 platforms">Level 2: 3 platforms</option>
+                            <option value="Level 1: 3+ platforms">Level 1: 3+ platforms</option>
+                        </select>
+                        Platforms: TrueCONNECT, PL2C, Cloud, ISP, CIA, ManagedCONNECT, NM Systems<br><br>
+                        平台划分：TC平台、PL2C平台、Cloud平台、ISP平台，CIA平台, ManagedCONNECT平台, NM Systems
+                    </td>
+                </tr>
+                <tr>
+                    <td>Affected Customers:</td>
+                    <td>
+                        <select>
+                            <option selected="selected" value="Level 4: No Impact">Level 4: No Impact</option>
+                            <option value="Level 3: Impact (route adjustment)">Level 3: Impact (route adjustment)
+                            </option>
+                            <option value="Level 2: Impact (affected customers &lt; 9)">Level 2: Impact (affected
+                                customers
+                                &lt; 9)
+                            </option>
+                            <option value="Level 1: Impact (affected customers &gt;=9)">Level 1: Impact (affected
+                                customers
+                                &gt;=9)
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Affected Important Customer:</td>
+                    <td>
+                        <input type="checkbox" title="Tutor ABC">Tutor ABC<br>
+                        <input type="checkbox" title="NextEV">NextEV<br>
+                        <input type="checkbox" title="CITIC Headquarters">CITIC Headquarters<br>
+                        <input type="checkbox" title="Specify your own value">Specify your own value:<br>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fallback Plan Analysis:</td>
+                    <td>
+                        <select title="Fallback Plan Analysis">
+                            <option selected="selected" value="Level 4">Level 4</option>
+                            <option value="Level 3">Level 3</option>
+                            <option value="Level 2">Level 2</option>
+                            <option value="Level 1">Level 1</option>
+                        </select>
+                        Level 4: Fallback plan is available, well-tested before maintenance and reliable<br>
+                        Level 3: Fallback plan is available, well-tested before maintenance but uncertain factors in
+                        production environment<br>
+                        Level 2: Fallback plan is available but cannot be tested before maintenance. There are uncertain
+                        factors in production environment<br>
+                        Level 1: No fallback plan<br><br>
+
+                        Level 4:有还原措施，在维护前经过测试，并且还原措施可靠<br>
+                        Level 3:有还原措施，在维护前经过测试，并且还原步骤会受到实际环境中的不确定因素影响<br>
+                        Level 2:有还原措施，在维护前无法进行测试，并且还原步骤会受到实际环境中的不确定因素影响<br>
+                        Level 1:无还原措施
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fallback Implementation Remark:</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Complexity and Operation Experience:</td>
+                    <td>
+                        <select title="Fallback Plan Analysis">
+                            <option selected="selected" value="Score 1">Score 1</option>
+                            <option value="Score 2">Score 2</option>
+                            <option value="Score 3">Score 3</option>
+                            <option value="Score 4">Score 4</option>
+                            <option value="Score 5">Score 5</option>
+                        </select>
+                        1, Routine and Experienced procedures (Score 1)<br>
+                        2, Routine and Limited Experience procedures (Score 2)<br>
+                        3, New Technique with vendor technical support (Score 3)<br>
+                        4, New Technique with internal technical expert support (Score 4)<br>
+                        5, New Technique with no technical support (Score 5)<br><br>
+
+                        1)使用常规技术，操作经验成熟(1分)<br>
+                        2)使用常规技术，操作经验有限(2分)<br>
+                        3)使用新技术，得到厂家的专业技术指引(3分)<br>
+                        4)使用新技术，得到公司内部技术专家的指引(4分)<br>
+                        5)使用新技术，没有得到任何技术指引（5分）
+                    </td>
+                </tr>
+                <tr>
+                    <td>Risk Description:</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Risk Prevention & Control:</td>
+                    <td>
+                        <select title="Fallback Plan Analysis">
+                            <option selected="selected" value="Score 1">Score 1</option>
+                            <option value="Score 2">Score 2</option>
+                            <option value="Score 3">Score 3</option>
+                            <option value="Score 4">Score 4</option>
+                            <option value="Score 5">Score 5</option>
+                        </select>
+
+                        1, There are sufficient/effective redundancy design and control methods. Monitoring and
+                        protection
+                        measures are available (Score 1)<br>
+                        2) Critical incidents can be discovered on time; there are regular monitoring or on-site
+                        preventive
+                        & control measures, and can be effectively implemented (Score 2)<br>
+                        3) There is no protection measure, or it is not strictly in accordance with the operational
+                        procedures. The occurrence of critical events is easy to be discovered and there is a monitoring
+                        system (Score 3)<br>
+                        4) The occurrence of critical events is not easy to be discovered as there is no monitoring
+                        system
+                        (Score 4)<br>
+                        5) No preventive or protective measures were taken. The occurrence of a critical incident cannot
+                        be
+                        discovered; there is no monitoring system (Score 5)<br>
+
+                        1) 有充分、有效的冗余设计、防范与控制方法。具备监测与保护措施（1分)<br>
+                        2) 危急事件一旦发生能及时发现，有定期进行监测或现场有防范控制措施，并能有效执行（2分）<br>
+                        3) 没有保护措施，或未严格按照操作程序执行或危急事件的发生容易被发现，有监测系统（3分）<br>
+                        4) 危急事件的发生不容易被发现，没有监测系统（4分）<br>
+                        5) 现场没有采取防范、保护措施。危急事件的发生不能被发现，没有监测系统（5分）<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Potential Impacts on Services/Customers:</td>
+                    <td>
+                        <input type="radio" name="potentialImpacts" checked>No Service Affected (Score 1)<br>
+                        <input type="radio" name="potentialImpacts">Minimal Impact（Score 2）<br>
+                        <input type="radio" name="potentialImpacts">Service Impairment（Score 3）<br>
+                        <input type="radio" name="potentialImpacts">Out of Service（Score 4）<br>
+                        <input type="radio" name="potentialImpacts">Critical Condition（Score 5)<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Risk Level:</td>
+                    <td>
+                        <input type="radio" name="riskLevel" checked>Score 4；Can be ignored (No need additional plan)<br>
+                        <input type="radio" name="riskLevel" >Score 4-8: Acceptable (Keep existing procedure and
+                        no<br>
+                        need additional plan. Should find a better resolution or no additional cost resolution)<br>
+                        <input type="radio" name="riskLevel" >Score 9-12: Medium (Should try to reduce the risk.
+                        If
+                        the scope of influence is “Critical Condition”, it must be further evaluated to more accurately
+                        determine the likelihood of the hazard to determine if control measures need to be improved)<br>
+                        <input type="radio" name="riskLevel" >Score 15-16: High (No maintenance should be made.
+                        Should take improvement measures to reduce to Medium or below)<br>
+                        <input type="radio" name="riskLevel" >Score 20-25: Unacceptable (Changes/Maintenance are
+                        prohibited. Should take improvement measures to reduce to Medium or below)<br><br>
+
+                        Calculation 1：Risk Level = < Risk Prevention & Control> * < Potential Impacts on
+                        Services/Customers><br>
+                        Calculation 2：Risk Level = < Complexity and Operation Experience> * < Potential Impacts on
+                        Services/Customers><br>
+                        Choose the higher score from Calculation 1 and Calculation 2 as Risk Level<br><br>
+
+                        计算方法1：Risk Level = < Risk Prevention & Control> * < Potential Impacts on Services/Customers><br>
+                        计算方法2：Risk Level = < Complexity and Operation Experience> * < Potential Impacts on
+                        Services/Customers><br><br>
+
+                        方法1与方法2，两个结果取得分高的为Risk Level 的分数;
+                    </td>
+                </tr>
+                <tr>
+                    <td>Configuration Item Release Management:</td>
+                    <td>
+                        <input type="radio" name="configurationManagement" checked>New model equipment first run in
+                        production environment<br>
+                        <input type="radio" name="configurationManagement" >Hardware upgrade<br>
+                        <input type="radio" name="configurationManagement" >Software first run in production
+                        environment<br>
+                        <input type="radio" name="configurationManagement" >Software upgrade<br>
+                        <input type="radio" name="configurationManagement" >Standard configuration adjustment<br>
+                        <input type="radio" name="configurationManagement" >Related change portfolio release<br>
+                        <input type="radio" name="configurationManagement" >Product/service function
+                        adjustment<br>
+                        <input type="radio" name="configurationManagement" >Product/service infrastructure
+                        adjustment<br>
+                        <input type="radio" name="configurationManagement" >Infrastructure adjustment<br>
+                        <input type="radio" name="configurationManagement" >Others<br>
+                        Please provide the following control documentation for further evaluation in accordance with
+                        release
+                        management requirements.<br>
+                        1) Issue verification and acceptance process record<br>
+                        2) New component testing report<br>
+                        3) Design document<br>
+                        4) Provisioning document<br>
+                        5) Monitoring and troubleshooting document<br>
+                        6) Management Authorization Record<br>
+                        7) Project handover document
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title_center">---------------------2---------------------</td>
+                    <td><input class="w-500" type="text"
+                               value="The section 2 contains approval information for the management/authorized personnel to approve the change request form."><br>
+                        Do not change
+                    </td>
+                </tr>
+                <tr>
+                    <td>Request Confirmed By:</td>
+                    <td class="w30"><input class="w-500" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Technical Approved By:</td>
+                    <td class="w30"><input class="w-500" type="text"></td>
+                </tr>
+                <tr>
+                    <td>Final Approved By:</td>
+                    <td class="w30">The control is not available because you do not have the correct permissions.</td>
+                </tr>
+                <tr>
+                    <td class="title_center">---------------------3---------------------</td>
+                    <td><input class="w-500" type="text"
+                               value="The section 3 contains change implementation and fallback-for change executor to record details after the change."><br>
+                        Do not change
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Details:</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Change Start Time:</td>
+                    <td class="w30" title="Change Start Time">
+                        <input type="text">
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change End Time:</td>
+                    <td class="w30" title="Change End Time">
+                        <input type="text">
+                        <select>
+                            <option selected="selected" value="00:">00:</option>
+                            <option value="01:">01:</option>
+                            <option value="02:">02:</option>
+                            <option value="03:">03:</option>
+                            <option value="04:">04:</option>
+                            <option value="05:">05:</option>
+                            <option value="06:">06:</option>
+                            <option value="07:">07:</option>
+                            <option value="08:">08:</option>
+                            <option value="09:">09:</option>
+                            <option value="10:">10:</option>
+                            <option value="11:">11:</option>
+                            <option value="12:">12:</option>
+                            <option value="13:">13:</option>
+                            <option value="14:">14:</option>
+                            <option value="15:">15:</option>
+                            <option value="16:">16:</option>
+                            <option value="17:">17:</option>
+                            <option value="18:">18:</option>
+                            <option value="19:">19:</option>
+                            <option value="20:">20:</option>
+                            <option value="21:">21:</option>
+                            <option value="22:">22:</option>
+                            <option value="23:">23:</option>
+                        </select>
+                        <select>
+                            <option selected="selected" value="00">00</option>
+                            <option value="05">05</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="40">40</option>
+                            <option value="45">45</option>
+                            <option value="50">50</option>
+                            <option value="55">55</option>
+                        </select><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Result:</td>
+                    <td title="Change Result"><input type="text" class="w-500" value="Please attach file if necessary."><br>
+                        Please attached 《POP点建设后工作记录表 》and 《线路维护及设备更新后期工作记录表 》if it is a POP maintenance.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Success:</td>
+                    <td title="Change Success"><input type="checkbox"></td>
+                </tr>
+
+
+                <tr>
+                    <td>Reason(If the change failed, please write down reason):</td>
+                    <td><textarea class="w-500 d-150"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Need Fallback:</td>
+                    <td class="w30"><input name="needFallback" type="radio">Yes<br>
+                        <input name="needFallback" type="radio" checked>No
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="" colspan="2">
+                        <div style="float: right">
+                            <input class="" id="attachOKbutton" type="BUTTON" onclick="OkAttach()" value="OK  ">
+                            <input class="" id="attachCancelButton" type="BUTTON" onclick="CancelAttach()"
+                                   value="Cancel ">
+                        </div>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

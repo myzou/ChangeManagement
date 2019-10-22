@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统信息列表</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="lib/element-ui/element-ui.css">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        h2 {
+            margin-left: 20px;
+            text-align: -webkit-center;
+            float: left;
+        }
+
+        .pageHelper {
+            margin-top: 10px;
+            float: right;
+        }
+    </style>
+</head>
+<style type="text/css">
+    .table {
+        border-collapse: collapse;
+        border: none;
+    }
+
+    .table td {
+        border: solid #000 1px;
+    }
+</style>
+<body>
+
+
+
+
+
+<div id="views">
+    <a @click="SystemInfoList()">SystemInfo</a><br>
+    <a @click="ZqDataList()">ZqData</a><br>
+    <a @click="QueryDeviceList()">QueryDeviceList</a><br>
+    <a @click="QueryDeviceSelect()">QueryDeviceSelect</a><br>
+
+    <hr>
+    <a @click="refresh()">刷新光衰</a><br>
+    <input type="text" id="deviceName" value=""><a @click="deviceNameQuery()">deviceName查询</a><br>
+    <a type="button" @click="tempCheckAll()">deviceName查询</a><br>
+
+
+
+
+</div>
+</body>
+<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
+<script src="lib/vue/vue.js"></script>
+<script src="lib/base.js"></script>
+<script src="lib/element-ui/element-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        new Vue({
+            el: '#views',
+            methods: {
+                refresh() {
+                    $(location).attr('href', URLPath('/api/refresh?paramDeviceName=&paramPort=&sendEmail=true'))
+                },
+                deviceNameQuery() {
+                    var deviceName=$("#deviceName").val();
+                    $(location).attr('href', URLPath('/api/refresh/tempCheck?containDeviceName='+deviceName+'&sendEmail=true'))
+                },
+                tempCheckAll() {
+                    $(location).attr('href', URLPath('/api/refresh/tempCheckAll?containDeviceName=&sendEmail=true'))
+                },
+                QueryDeviceSelect() {
+                    $(location).attr('href', URLPath('/select?page=QueryDevice'));
+                },
+                SystemInfoList() {
+                    $(location).attr('href', URLPath('/list?page=SystemInfo'))
+                }, ZqDataList() {
+                    $(location).attr('href', URLPath('/list?page=ZqData'))
+                }, QueryDeviceList() {
+                    $(location).attr('href', URLPath('/list?page=QueryDevice'))
+                }
+
+            }
+        })
+    });
+</script>
+</html>

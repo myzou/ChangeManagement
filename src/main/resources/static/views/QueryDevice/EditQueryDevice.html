@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细页</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="lib/element-ui/element-ui.css">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" v-loading="loading" element-loading-text="代码执行逻辑中..." style="width: 70%;margin: 0 auto;">
+    <header>
+        <div style="margin-top: 15px;">
+            <el-breadcrumb separator="/">
+                <el-breadcrumb-item><a href="/">首页</a></el-breadcrumb-item>
+                <el-breadcrumb-item>光衰详细</el-breadcrumb-item>
+            </el-breadcrumb>
+        </div>
+        <h1 style="text-align: -webkit-center;">
+            编辑光衰详细
+        </h1>
+    </header>
+    <el-form :inline="false" :disabled="false" :model="sizeForm" ref="sizeForm" label-width="180px" size="small">
+        <el-form-item label="设备名称">
+            <el-input type="text" v-model="sizeForm.deviceName"
+            ></el-input>
+        </el-form-item>
+        <el-form-item label="端口">
+            <el-input type="text" v-model="sizeForm.port"  ></el-input>
+        </el-form-item>
+        <el-form-item label="对应的设备IP">
+            <el-input type="text" v-model="sizeForm.ip"></el-input>
+        </el-form-item>
+        <el-form-item label="状态">
+            <el-input type="textarea" v-model="sizeForm.status"></el-input>
+        </el-form-item>
+        <el-form-item label="IP更新时间">
+            <el-input type="textarea" v-model="sizeForm.ipUpdateTime"></el-input>
+        </el-form-item>
+        <el-form-item label="检测状态时间">
+            <el-input type="textarea"  v-model="sizeForm.checkUpdateTime"></el-input>
+        </el-form-item>
+        <el-form-item size="large">
+            <el-button type="primary" @click="onSubmit">立即保存</el-button>
+            <el-button @click="cancel">取消</el-button>
+        </el-form-item>
+    </el-form>
+</div>
+
+</body>
+<script src="lib/jQuery/jquery-3.3.1.min.js"></script>
+<script src="lib/vue/vue.js"></script>
+<script src="lib/base.js"></script>
+<script src="lib/element-ui/element-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    sizeForm: {},
+                    loading: false,
+                    show:false
+                }
+            },
+            created: function () {
+                var self = this;
+                var urlinfo = window.location.href,//获取url
+                    value = urlinfo.split("id=")[1].split("&")[0]; //拆分url得到”=”后面的参数
+                $.ajax({
+                    type: "GET",
+                    url: URLPath("/api/qd/one"),
+                    dataType: 'json',
+                    data:{
+                        id:decodeURI(value)
+                    },
+                    success: function (result) {
+                        self.sizeForm = result;
+                    }
+                });
+            },
+            methods: {
+                onSubmit() {
+                    var self = this;
+                    self.loading = true;
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json;charset=UTF-8",
+                        url: URLPath("/api/qd/save"),
+                        data: JSON.stringify(self.sizeForm),
+                        dataType: 'json',
+                        success: function (result) {
+                            self.$notify({
+                                title: '成功',
+                                message: '操作成功。',
+                                type: 'success'
+                            });
+                            $(location).attr('href', URLPath('/list?page=QueryDevice'))
+                        },
+                        error: function (data) {
+                            self.$notify.error({
+                                title: '错误！',
+                                message: '保存失败，请检查表单数据',
+                                duration: 0
+                            });
+                            self.loading = false;
+                        }
+                    });
+                },
+                cancel() {
+                    window.history.back(-1);
+                },
+                resetForm(formName) {
+                    this.$refs[formName].resetFields();
+                }
+            }
+        })
+    });
+</script>
+</html>
